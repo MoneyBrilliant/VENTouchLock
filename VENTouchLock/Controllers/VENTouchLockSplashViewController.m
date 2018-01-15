@@ -50,11 +50,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     if (!self.isSnapshotViewController) {
-        if (![VENTouchLock shouldUseTouchID]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self showPasscodeAnimated:NO];
-            });
-        }
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self showUnlockAnimated:NO];
+		});
     }
 }
 
@@ -129,7 +127,7 @@
 {
     if (!self.presentedViewController) {
         if (![VENTouchLock shouldUseTouchID]) {
-            [self showPasscodeAnimated:NO];
+            [self showUnlockAnimated:NO];
         }
     }
 }
